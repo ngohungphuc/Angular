@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
     selector: 'app-two-way-binding',
     template: `
     <input type="text" [(ngModel)]="person.name">
-    <input type="text" [(ngModel)]="person.name">
+    <input type="text" [(ngModel)]="person.age">
   `
 })
 export class TwoWayBindingComponent {
