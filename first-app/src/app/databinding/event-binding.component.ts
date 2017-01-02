@@ -8,6 +8,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
     styles: []
 })
 export class EventBindingComponent {
+    //“properties” (for “inputs”) and “events” (for “outputs”)
     //use output keywork so that other component can use it
     @Output() clicked = new EventEmitter();
 
