@@ -15,4 +15,4 @@ Second way to use ng-class call function
 <app-property-binding [result]="10"></app-property-binding>
 
 <p>Event binding</p>
-<app-event-binding></app-event-binding>
+<app-event-binding (clicked)="onClicked($event)"></app-event-binding>
