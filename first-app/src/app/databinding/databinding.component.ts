@@ -8,4 +8,8 @@ import {Component, OnInit} from '@angular/core';
 export class DatabindingComponent {
     stringInterpolation = "This is stringInterpolation";
     numberInterpolation = "This is numberInterpolation";
+
+    onTest() {
+        return true;
+    }
 }

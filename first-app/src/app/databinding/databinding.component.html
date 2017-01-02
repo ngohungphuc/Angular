@@ -1,7 +1,14 @@
-<p>
-    {{stringInterpolation}}
-</p>
+<h1>String interpolation</h1>
+{{stringInterpolation}} | {{numberInterpolation}}
 
-<p>
-    {{numberInterpolation}}
-</p>
+<hr>
+
+<h1>Property binding</h1>
+<p><input type="text" value="{{stringInterpolation}}"></p>
+<br/>
+<p>Second way binding by properties<input type="text" [value]="stringInterpolation"></p>
+Use ngClass binding properties
+<p [ngClass]="{redBorder:true}">Is this a style</p>
+Second way to use ng-class call function
+<p [ngClass]="{redBorder:onTest()}">Is this a style</p>
+
