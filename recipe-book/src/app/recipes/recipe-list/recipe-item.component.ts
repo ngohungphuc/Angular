@@ -7,7 +7,7 @@ import {Recipe} from '../recipe';
 })
 export class RecipeItemComponent implements OnInit {
   //strongly type assign Recipe class to recipe
-  //use input so that recipe can use
+  //use input so that orther component can use recipe
   @Input() recipe: Recipe;
   recipeId: number;
 

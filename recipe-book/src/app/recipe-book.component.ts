@@ -5,5 +5,5 @@ import {Component} from '@angular/core';
   templateUrl: './recipe-book.component.html'
 })
 export class RecipeBookAppComponent {
-
+//bootstrap component
 }
