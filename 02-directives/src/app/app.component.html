@@ -20,3 +20,11 @@ Second way
 <ul>
   <li *ngFor="let item of items;let i = index">{{item}} - (Index {{i}})</li>
 </ul>
+
+<hr>
+<h2>ngSwitch</h2>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="10">10</p>
+  <p *ngSwitchCase="100">100</p>
+  <p *ngSwitchDefault>Default</p>
+</div>
