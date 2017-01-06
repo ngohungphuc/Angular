@@ -1,23 +1,30 @@
-import {Directive, ElementRef, Renderer, HostListener, HostBinding} from '@angular/core';
+import {Directive, ElementRef, Renderer, HostListener, HostBinding, Input, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
 })
 export class HighlightDirective {
-  private backgroundColor = 'white';
+  private backgroundColor: string;
+  @Input() defaultColor = 'white';
+  //use 'highlight' for outside to access
+  @Input('highlight') highlightColor = 'white';
 
   //add event listtener
   @HostListener('mouseenter') mouseover() {
-    this.backgroundColor = 'green';
+    this.backgroundColor = this.highlightColor;
   }
 
   @HostListener('mouseleave') mouselevave() {
-    this.backgroundColor = 'white';
+    this.backgroundColor = this.defaultColor;
   }
 
   //readonly property should have
   @HostBinding('style.backgroundColor') get setColor() {
     return this.backgroundColor;
+  }
+
+  ngOnInit() {
+    this.backgroundColor = this.defaultColor;
   }
 
   /* constructor(private elementRef: ElementRef, private renderer: Renderer) {
