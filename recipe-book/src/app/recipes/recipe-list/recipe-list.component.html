@@ -8,7 +8,7 @@
     <ul class="list-group">
       <!--[recipe] the bound property in recipe item-->
       <!--recipe the property of recipe list-->
-      <rb-recipe-item [recipe]="recipe" (click)="onSelected(recipe)"></rb-recipe-item>
+      <rb-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (click)="onSelected(recipe)"></rb-recipe-item>
     </ul>
   </div>
 </div>
