@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-5">
+    <!--pass selectedRecipe = $event data into rb-recipe-detail-->
     <rb-recipe-list (recipeSelected)="selectedRecipe = $event"></rb-recipe-list>
   </div>
   <div class="col-md-7">
+    <!--Call selectedRecipe input in recipe-detail-->
     <rb-recipe-detail [selectedRecipe]="selectedRecipe"></rb-recipe-detail>
   </div>
 </div>
