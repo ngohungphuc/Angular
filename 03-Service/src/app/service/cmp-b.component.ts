@@ -4,7 +4,6 @@ import {DataService} from "./data.service";
 
 @Component({
     selector: 'si-cmp-b',
-    providers: [LogService],
     template: `
     <div>
       <input type="text" #input>

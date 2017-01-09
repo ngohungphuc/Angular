@@ -3,7 +3,6 @@ import {LogService} from './log.service';
 import {DataService} from "./data.service";
 @Component({
     selector: 'si-cmp-a',
-    providers: [LogService],
     template: `
     <div>
       <input type="text" #input>
