@@ -1,10 +1,11 @@
 import {LogService} from "./log.service";
-import {Injectable} from "@angular/core";
+import {Injectable, EventEmitter} from "@angular/core";
 
 //declear inject meta to inject service into service
 @Injectable()
 export class DataService {
     private data: string[] = [];
+    pushData = new EventEmitter<string>();
 
     constructor(private logService: LogService) {
 
@@ -17,5 +18,10 @@ export class DataService {
 
     getData() {
         return this.data;
+    }
+
+    //push data for other to receive
+    broadcastData(value: string) {
+        this.pushData.emit(value);
     }
 }

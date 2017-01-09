@@ -43,6 +43,6 @@ export class CmpAComponent {
     }
 
     onSend(value: string) {
-
+        this.dataService.broadcastData(value);
     }
 }
