@@ -11,27 +11,28 @@ import {RecipeItemComponent} from './recipes/recipe-list/recipe-item.component';
 import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {ShoppingListAddComponent} from './shopping-list/shopping-list-add.component';
-import { DropdownDirective } from './dropdown.directive';
+import {DropdownDirective} from './dropdown.directive';
+import {RecipeService} from "./recipes/recipe.service";
 
 @NgModule({
-  declarations: [
-    RecipeBookAppComponent,
-    HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-    RecipeDetailComponent,
-    ShoppingListComponent,
-    ShoppingListAddComponent,
-    DropdownDirective,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [RecipeBookAppComponent]
+    declarations: [
+        RecipeBookAppComponent,
+        HeaderComponent,
+        RecipesComponent,
+        RecipeListComponent,
+        RecipeItemComponent,
+        RecipeDetailComponent,
+        ShoppingListComponent,
+        ShoppingListAddComponent,
+        DropdownDirective,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule
+    ],
+    providers: [RecipeService],
+    bootstrap: [RecipeBookAppComponent]
 })
 export class AppModule {
 }

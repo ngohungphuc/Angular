@@ -46,7 +46,7 @@ export class CmpBComponent implements OnInit {
         this.dataService.broadcastData(value);
     }
 
-    //when app init we will get data 
+    //when app init we will get data
     ngOnInit() {
         this.dataService.pushData.subscribe(
             data => this.value = data
