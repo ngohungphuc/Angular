@@ -8,7 +8,7 @@ import {UserComponent} from "./user/user.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'user', component: UserComponent}
+  {path: 'user/:id', component: UserComponent}
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

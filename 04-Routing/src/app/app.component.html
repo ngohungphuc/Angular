@@ -4,7 +4,9 @@
       <h1>Hello World!</h1>
       <hr>
       <a [routerLink]="['']">Home</a>
-      <a [routerLink]="['/user']">User</a>
+      <!--#id local reference-->
+      <input type="text" #id (input)="0">
+      <a [routerLink]="['/user',id.value]">User</a>
       <hr>
       <router-outlet></router-outlet>
     </div>
