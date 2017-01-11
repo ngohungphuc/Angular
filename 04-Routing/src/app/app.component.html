@@ -3,11 +3,13 @@
     <div class="col-xs-10">
       <h1>Hello World!</h1>
       <hr>
-      <a [routerLink]="['']" [queryParams]="{analytics:500}" [fragment]="'section1'">Home</a>
+      <!-- [fragment]="'section1'"-->
+      <a [routerLink]="['']" [queryParams]="{analytics:500}" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}">Home</a>
       <!--#id local reference-->
       <input type="text" #id (input)="0">
       <!--[preserveQueryParams]="true"-->
-      <a [routerLink]="['/user',id.value]">User</a>
+      <a [routerLink]="['user',id.value]" routerLinkActive="active">User</a>
       <hr>
       <router-outlet></router-outlet>
     </div>
