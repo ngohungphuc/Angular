@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <a class="btn btn-success">New Recipe</a>
+    <a class="btn btn-success" [routerLink]="">New Recipe</a>
   </div>
 </div>
 <div class="row">
@@ -8,7 +8,7 @@
     <ul class="list-group">
       <!--[recipe] the bound property in recipe item-->
       <!--recipe the property of recipe list-->
-      <rb-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (click)="onSelected(recipe)"></rb-recipe-item>
+      <rb-recipe-item *ngFor="let recipe of recipes;let i = index" [recipe]="recipe" [recipeId]="i"></rb-recipe-item>
     </ul>
   </div>
 </div>
