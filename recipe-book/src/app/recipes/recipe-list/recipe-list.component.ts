@@ -11,8 +11,8 @@ export class RecipeListComponent implements OnInit {
     //call from recipes html to this event
     //then pass to onSelected function
     //then in recipe list html call onselect pass data receive from recipes
-    @Output() recipeSelected = new EventEmitter<Recipe>();
-
+  /*@Output() recipeSelected = new EventEmitter<Recipe>();
+   */
     constructor(private recipeService: RecipeService) {
 
     }
@@ -22,9 +22,9 @@ export class RecipeListComponent implements OnInit {
     }
 
     //fire up the event
-    onSelected(recipe: Recipe) {
-        this.recipeSelected.emit(recipe);
-    }
+  /*onSelected(recipe: Recipe) {
+   this.recipeSelected.emit(recipe);
+   }
 
-
+   */
 }
