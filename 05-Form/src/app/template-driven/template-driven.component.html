@@ -7,7 +7,8 @@
              class="form-control"
              id="username"
              ngModel
-             name="username">
+             name="username"
+             required>
     </div>
     <div class="form-group">
       <label for="email">E-Mail</label>
@@ -15,7 +16,9 @@
              class="form-control"
              id="email"
              ngModel
-             name="email">
+             name="email"
+             required
+             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
     </div>
   </div>
   <div class="form-group">
@@ -24,7 +27,8 @@
            class="form-control"
            id="password"
            ngModel
-           name="password">
+           name="password"
+           required>
   </div>
   <div class="radio">
     <label>
