@@ -11,6 +11,7 @@ import {NgForm} from "@angular/forms";
   `]
 })
 export class TemplateDrivenComponent {
+  //set default value for from
   user = {
     username: '1',
     email: 'n@gmail.com',
@@ -18,6 +19,6 @@ export class TemplateDrivenComponent {
   }
 
   onSubmit(form: NgForm) {
-    console.log(this.user);
+    console.log(form.value);
   }
 }
