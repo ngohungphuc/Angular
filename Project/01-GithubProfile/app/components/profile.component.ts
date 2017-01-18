@@ -10,7 +10,11 @@ import {GitHubService} from "../services/github.services";
   providers: [GitHubService]
 })
 export class ProfileComponent {
-  constructor(private _githubService: GitHubService) {
+  user: any[];
 
+  constructor(private _githubService: GitHubService) {
+    this._githubService.getUser().subscribe(user => {
+      this.user = user;
+    });
   }
 }
