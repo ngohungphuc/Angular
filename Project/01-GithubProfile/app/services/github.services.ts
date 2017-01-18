@@ -30,6 +30,10 @@ export class GitHubService {
       .map(res => res.json());
   }
 
+  updateUser(username: string) {
+    this.username = username;
+  }
+
   /*getContrib() {
    return this._http.get('http://api.github.com/repos/:' + this.username +
    '/stats/?client_id=' + this.client_id +

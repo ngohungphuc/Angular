@@ -10,11 +10,17 @@ import {GitHubService} from "../services/github.services";
   providers: [GitHubService]
 })
 export class ProfileComponent {
-  user: any[];
+  user: any;
   repos: any[];
   contribs: any[];
+  username: string;
 
   constructor(private _githubService: GitHubService) {
+    this.user = false;
+  }
+
+  searchUser() {
+    this._githubService.updateUser(this.username);
     this._githubService.getUser().subscribe(user => {
       this.user = user;
     });
@@ -22,10 +28,5 @@ export class ProfileComponent {
       console.log(repos);
       this.repos = repos;
     });
-    /*this._githubService.getContrib().subscribe(contribs => {
-     console.log(contribs);
-     this.contribs = contribs;
-     });*/
-
   }
 }
