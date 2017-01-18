@@ -11,10 +11,21 @@ import {GitHubService} from "../services/github.services";
 })
 export class ProfileComponent {
   user: any[];
+  repos: any[];
+  contribs: any[];
 
   constructor(private _githubService: GitHubService) {
     this._githubService.getUser().subscribe(user => {
       this.user = user;
     });
+    this._githubService.getRepos().subscribe(repos => {
+      console.log(repos);
+      this.repos = repos;
+    });
+    /*this._githubService.getContrib().subscribe(contribs => {
+     console.log(contribs);
+     this.contribs = contribs;
+     });*/
+
   }
 }
