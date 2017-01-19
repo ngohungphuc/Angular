@@ -1,1 +1,7 @@
-Search
+<h1>Need Music?</h1>
+<form>
+  <div class="form-group">
+    <input class="form-control" type="text" placeholder="Search artist..." [(ngModel)]="searchStr" name="searchStr"
+           (keyup)="searchMusic()">
+  </div>
+</form>
