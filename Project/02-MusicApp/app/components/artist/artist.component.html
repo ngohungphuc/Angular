@@ -1,5 +1,5 @@
 <div *ngIf="artist">
-  <header>
+  <header id="artist-header">
     <div *ngIf="artist.images.length">
       <img class="artist-thumb img-circle" src="{{artist.images[0].url}}"/>
     </div>
@@ -16,7 +16,7 @@
           <div class="album well">
             <img src="{{album.images[0].url}}" class="album-thumb img-thumbnail"/>
             <h4>{{album.name}}</h4>
-            <a class="btn btn-default btn-block" routerLink="album/{{album.id}}">Album Details</a>
+            <a class="btn btn-default btn-block" routerLink="/album/{{album.id}}">Album Details</a>
           </div>
         </div>
       </div>

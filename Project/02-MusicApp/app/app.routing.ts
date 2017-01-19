@@ -1,11 +1,12 @@
 /**
  * Created by phuc.ngo on 19/01/2017.
  */
+import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {SearchComponent} from "./components/search/search.component";
 import {AboutComponent} from "./components/about/about.component";
-import {ModuleWithProviders} from "@angular/core";
 import {ArtistComponent} from "./components/artist/artist.component";
+import {AlbumComponent} from "./components/album/album.component";
 const appRoutes: Routes = [
   {
     path: '',
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'artist/:id',
     component: ArtistComponent
+  },
+  {
+    path: 'album/:id',
+    component: AlbumComponent
   }
 ];
 

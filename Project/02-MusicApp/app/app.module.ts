@@ -9,10 +9,11 @@ import {routing} from "./app.routing";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {ArtistComponent} from "./components/artist/artist.component";
+import {AlbumComponent} from "./components/album/album.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, routing],
-  declarations: [AppComponent, SearchComponent, NavbarComponent, AboutComponent, ArtistComponent],
+  declarations: [AppComponent, SearchComponent, NavbarComponent, AboutComponent, ArtistComponent, AlbumComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
