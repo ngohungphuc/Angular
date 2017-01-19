@@ -33,11 +33,4 @@ export class GitHubService {
   updateUser(username: string) {
     this.username = username;
   }
-
-  /*getContrib() {
-   return this._http.get('http://api.github.com/repos/:' + this.username +
-   '/stats/?client_id=' + this.client_id +
-   '&client_sercret=' + this.client_secret)
-   .map(res => res.json());
-   }*/
 }
