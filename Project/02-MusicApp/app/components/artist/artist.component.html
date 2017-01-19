@@ -8,4 +8,18 @@
       Genres: <span *ngFor="let genre of artist.genres">{{genre}}</span>
     </p>
   </header>
+
+  <div class="artist-album">
+    <div class="row">
+      <div *ngFor="let album of albums" class="albums-container">
+        <div class="col-md-3 albums-content">
+          <div class="album well">
+            <img src="{{album.images[0].url}}" class="album-thumb img-thumbnail"/>
+            <h4>{{album.name}}</h4>
+            <a class="btn btn-default btn-block" routerLink="album/{{album.id}}">Album Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
