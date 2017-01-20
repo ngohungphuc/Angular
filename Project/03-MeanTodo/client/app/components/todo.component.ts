@@ -22,4 +22,18 @@ export class TodoComponent implements OnInit {
         });
     }
 
+    addTodo(event, todoText) {
+        console.log(todoText.value);
+        var newTodo = {
+            text: todoText.value,
+            isCompleted: false
+        };
+
+        var result = this._todoService.saveTodo(newTodo);
+        result.subscribe(x => {
+            this.todos.push(newTodo);
+            todoText.value = '';
+        });
+
+    }
 }
