@@ -22,7 +22,7 @@ export class TodoComponent implements OnInit {
         });
     }
 
-    addTodo(event, todoText) {
+    addTodo(event: any, todoText: any) {
         console.log(todoText.value);
         var newTodo = {
             text: todoText.value,
@@ -35,5 +35,27 @@ export class TodoComponent implements OnInit {
             todoText.value = '';
         });
 
+    }
+
+    setEditState(todo: any, state: any) {
+        if (state) {
+            todo.isEditMode = state;
+        }
+        else {
+            delete todo.isEditMode;
+        }
+    }
+
+    updateStatus(todo: any) {
+        var _todo = {
+            _id: todo._id,
+            text: todo.text,
+            isCompleted: !todo.isCompleted
+        };
+
+        this._todoService.updateTodo(_todo)
+            .subscribe(data => {
+                todo.isCompleted = !todo.isCompleted
+            });
     }
 }

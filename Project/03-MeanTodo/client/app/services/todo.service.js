@@ -27,6 +27,12 @@ var TodoService = (function () {
         return this._http.post('/api/v1/todos', JSON.stringify(todo), { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    TodoService.prototype.updateTodo = function (todo) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.put('/api/v1/todo/' + todo.id, JSON.stringify(todo), { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     TodoService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
