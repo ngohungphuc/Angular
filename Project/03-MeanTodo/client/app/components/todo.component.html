@@ -8,12 +8,15 @@
 </div>
 
 <div class="todo-list">
-    <div class="col-md-1">
-        <input type="checkbox">
+    <div *ngFor="let todo of todos">
+        <div class="col-md-1">
+            <input type="checkbox">
+        </div>
+        <div class="col-md-7">{{todo.text}}</div>
+        <div class="col-md-4 btns">
+            <input type="button" class="btn default pull-right" value="Edit">
+            <input type="button" class="btn btn-danger pull-right" value="Delete">
+        </div>
     </div>
-    <div class="col-md-7">Some todo</div>
-    <div class="col-md-4 btns">
-        <input type="button" class="btn default pull-right" value="Edit">
-        <input type="button" class="btn btn-danger pull-right" value="Delete">
-    </div>
+
 </div>
