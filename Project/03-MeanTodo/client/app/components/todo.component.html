@@ -18,7 +18,7 @@
           <input type="button" [class.hidden]="!todo.isEditMode"  value="Cancel" (click)="setEditState(todo,false)" class="btn btn-warning"/>
         </div>
         <div class="col-md-4 btns">
-            <input type="button" class="btn btn-danger pull-right" value="Delete">
+            <input (click)="deleteTodo(todo)" type="button" class="btn btn-danger pull-right" value="Delete">
             <input [class.disabled]="todo.isCompleted" (click)="setEditState(todo,true)" type="button" class="btn default pull-right" value="Edit">
         </div>
     </div>

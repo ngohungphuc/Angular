@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var todo_service_1 = require("../services/todo.service");
 var TodoComponent = (function () {
     function TodoComponent(_todoService) {
@@ -67,15 +67,28 @@ var TodoComponent = (function () {
             });
         }
     };
+    TodoComponent.prototype.deleteTodo = function (todo) {
+        var todos = this.todos;
+        this._todoService.deleteTodo(todo._id)
+            .subscribe(function (data) {
+            if (data.n == 1) {
+                for (var i = 0; i < todos.length; i++) {
+                    if (todos[i]._id == todo._id) {
+                        todos.splice(i, 1);
+                    }
+                }
+            }
+        });
+    };
+    TodoComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'todo',
+            templateUrl: 'todo.component.html'
+        }), 
+        __metadata('design:paramtypes', [todo_service_1.TodoService])
+    ], TodoComponent);
     return TodoComponent;
 }());
-TodoComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'todo',
-        templateUrl: 'todo.component.html'
-    }),
-    __metadata("design:paramtypes", [todo_service_1.TodoService])
-], TodoComponent);
 exports.TodoComponent = TodoComponent;
 //# sourceMappingURL=todo.component.js.map

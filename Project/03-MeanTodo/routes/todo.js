@@ -5,78 +5,119 @@ var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
 var db = mongojs('mongodb://tony:070695@ds117869.mlab.com:17869/tony_meantodo', ['todos']);
-router.get('/todos', function(req, res, next) {
-    db.todos.find(function(err, todos) {
-        if(err) {
+router.get('/todos', function(req, res, next)
+{
+    db.todos.find(function(err, todos)
+    {
+        if(err)
+        {
             res.send(err);
-        } else {
+        }
+        else
+        {
             res.json(todos);
         }
     });
 });
-router.get('/todo/:id', function(req, res, next) {
-    db.todos.findOne({
+router.get('/todo/:id', function(req, res, next)
+{
+    db.todos.findOne(
+    {
         _id: mongojs.ObjectID(req.params.id)
-    }, function(err, todo) {
-        if(err) {
+    }, function(err, todo)
+    {
+        if(err)
+        {
             res.send(err);
-        } else {
+        }
+        else
+        {
             res.json(todo);
         }
     });
 });
-router.post('/todos/', function(req, res, next) {
+router.post('/todos/', function(req, res, next)
+{
     var todo = req.body;
-    if(!todo.text || !(todo.isCompleted + '')) {
+    if(!todo.text || !(todo.isCompleted + ''))
+    {
         res.status(400);
-        res.json({
+        res.json(
+        {
             "error": "Invalid data"
         });
-    } else {
-        db.todos.save(todo, function(err, result) {
-            if(err) {
+    }
+    else
+    {
+        db.todos.save(todo, function(err, result)
+        {
+            if(err)
+            {
                 res.send(err);
-            } else {
+            }
+            else
+            {
                 res.json(result);
             }
         });
     }
 });
-router.put('/todo/:id', function(req, res, next) {
+router.put('/todo/:id', function(req, res, next)
+{
     var id = req.params.id;
     var todo = req.body;
     var updateObj = {};
-    if(todo.isCompleted) {
+    if(todo.isCompleted)
+    {
         updateObj.isCompleted = todo.isCompleted;
     }
-    if(todo.text) {
+    if(todo.text)
+    {
         updateObj.text = todo.text;
     }
-    if(!updateObj) {
+    if(!updateObj)
+    {
         res.status(400);
-        res.json({
+        res.json(
+        {
             "error": "Invalid data"
         });
-    } else {
-        db.todos.update({
+    }
+    else
+    {
+        db.todos.update(
+        {
             _id: mongojs.ObjectID(id)
-        }, updateObj, {}, function(err, result) {
+        }, updateObj,
+        {}, function(err, result)
+        {
             console.log(result);
-            if(err) {
+            if(err)
+            {
                 res.send(err);
-            } else {
+            }
+            else
+            {
                 res.json(result);
             }
         });
     }
 });
-router.delete('/todo/:id', function(req, res, next) {
-    db.todos.remove({
-        _id: mongojs.ObjectID(req.parms.id)
-    }, '', function(err, result) {
-        if(err) {
+router.delete('/todo/:id', function(req, res, next)
+{
+    var id = req.params.id;
+    db.todos.remove(
+    {
+        _id: mongojs.ObjectID(id)
+    }, '', function(err, result)
+    {
+        console.log(result);
+        if(err)
+        {
             res.send(err);
-        } else {
+        }
+        else
+        {
             res.json(result);
         }
     });
