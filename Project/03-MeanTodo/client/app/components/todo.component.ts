@@ -22,22 +22,22 @@ export class TodoComponent implements OnInit {
         });
     }
 
-    addTodo(event: any, todoText: any) {
-        console.log(todoText.value);
-        var newTodo = {
-            text: todoText.value,
-            isCompleted: false
-        };
+	addTodo(event, todoText) {
+		console.log(todoText.value);
+		var newTodo = {
+			text: todoText.value,
+			isCompleted: false
+		};
 
-        var result = this._todoService.saveTodo(newTodo);
-        result.subscribe(x => {
-            this.todos.push(newTodo);
-            todoText.value = '';
-        });
+		var result = this._todoService.saveTodo(newTodo);
+		result.subscribe(x => {
+			this.todos.push(newTodo);
+			todoText.value = '';
+		});
 
-    }
+	}
 
-    setEditState(todo: any, state: any) {
+    /*setEditState(todo: any, state: any) {
         if (state) {
             todo.isEditMode = state;
         }
@@ -47,15 +47,16 @@ export class TodoComponent implements OnInit {
     }
 
     updateStatus(todo: any) {
-        var _todo = {
-            _id: todo._id,
+		console.log(todo._id);
+        var todoUpdate = {
+            id: todo._id,
             text: todo.text,
             isCompleted: !todo.isCompleted
         };
 
-        this._todoService.updateTodo(_todo)
+        this._todoService.updateTodo(todoUpdate)
             .subscribe(data => {
                 todo.isCompleted = !todo.isCompleted
             });
-    }
+    }*/
 }
