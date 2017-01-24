@@ -37,7 +37,7 @@ export class TodoComponent implements OnInit {
 
 	}
 
-    /*setEditState(todo: any, state: any) {
+    setEditState(todo, state) {
         if (state) {
             todo.isEditMode = state;
         }
@@ -46,17 +46,17 @@ export class TodoComponent implements OnInit {
         }
     }
 
-    updateStatus(todo: any) {
+    updateStatus(todo) {
 		console.log(todo._id);
-        var todoUpdate = {
+        var _todo = {
             id: todo._id,
             text: todo.text,
             isCompleted: !todo.isCompleted
         };
 
-        this._todoService.updateTodo(todoUpdate)
+        this._todoService.updateTodo(_todo)
             .subscribe(data => {
-                todo.isCompleted = !todo.isCompleted
+                todo.isCompleted = !todo.isCompleted;
             });
-    }*/
+    }
 }

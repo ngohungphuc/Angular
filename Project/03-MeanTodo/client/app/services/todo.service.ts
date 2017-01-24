@@ -17,17 +17,18 @@ export class TodoService {
         return this._http.get('/api/v1/todos').map(res => res.json());
     }
 
-	saveTodo(todo: Todo) {
+	saveTodo(todo) {
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		return this._http.post('/api/v1/todos', JSON.stringify(todo), { headers: headers })
 			.map(res => res.json());
 	}
 
-	/*  updateTodo(todoUpdate: Todo) {
-		  var headers = new Headers();
-		  headers.append('Content-Type', 'application/json');
-		  return this._http.put('/api/v1/todo/' + todoUpdate.id, JSON.stringify(todoUpdate), { headers: headers })
-			  .map(res => res.json());
-	  }*/
+	updateTodo(todo) {
+		console.log(todo);
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this._http.put('/api/v1/todo/' + todo.id, JSON.stringify(todo), { headers: headers })
+			.map(res => res.json());
+	}
 }
