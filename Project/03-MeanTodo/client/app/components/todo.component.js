@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var todo_service_1 = require("../services/todo.service");
 var TodoComponent = (function () {
     function TodoComponent(_todoService) {
@@ -23,7 +23,6 @@ var TodoComponent = (function () {
     };
     TodoComponent.prototype.addTodo = function (event, todoText) {
         var _this = this;
-        console.log(todoText.value);
         var newTodo = {
             text: todoText.value,
             isCompleted: false
@@ -43,7 +42,6 @@ var TodoComponent = (function () {
         }
     };
     TodoComponent.prototype.updateStatus = function (todo) {
-        console.log(todo._id);
         var _todo = {
             id: todo._id,
             text: todo.text,
@@ -54,15 +52,30 @@ var TodoComponent = (function () {
             todo.isCompleted = !todo.isCompleted;
         });
     };
-    TodoComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'todo',
-            templateUrl: 'todo.component.html'
-        }), 
-        __metadata('design:paramtypes', [todo_service_1.TodoService])
-    ], TodoComponent);
+    TodoComponent.prototype.updateTodoText = function (event, todo) {
+        var _this = this;
+        if (event.which === 13) {
+            todo.text = event.target.value;
+            var _todo = {
+                id: todo._id,
+                text: todo.text,
+                isCompleted: todo.isCompleted
+            };
+            this._todoService.updateTodo(_todo)
+                .subscribe(function (data) {
+                _this.setEditState(todo, false);
+            });
+        }
+    };
     return TodoComponent;
 }());
+TodoComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'todo',
+        templateUrl: 'todo.component.html'
+    }),
+    __metadata("design:paramtypes", [todo_service_1.TodoService])
+], TodoComponent);
 exports.TodoComponent = TodoComponent;
 //# sourceMappingURL=todo.component.js.map

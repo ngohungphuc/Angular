@@ -23,7 +23,6 @@ export class TodoComponent implements OnInit {
     }
 
 	addTodo(event, todoText) {
-		console.log(todoText.value);
 		var newTodo = {
 			text: todoText.value,
 			isCompleted: false
@@ -47,7 +46,6 @@ export class TodoComponent implements OnInit {
     }
 
     updateStatus(todo) {
-		console.log(todo._id);
         var _todo = {
             id: todo._id,
             text: todo.text,
@@ -58,5 +56,21 @@ export class TodoComponent implements OnInit {
             .subscribe(data => {
                 todo.isCompleted = !todo.isCompleted;
             });
+    }
+
+    updateTodoText(event, todo) {
+		if (event.which === 13) {
+			todo.text = event.target.value;
+			var _todo = {
+				id: todo._id,
+				text: todo.text,
+				isCompleted: todo.isCompleted
+			};
+
+			this._todoService.updateTodo(_todo)
+				.subscribe(data => {
+					this.setEditState(todo, false);
+				});
+		}
     }
 }
