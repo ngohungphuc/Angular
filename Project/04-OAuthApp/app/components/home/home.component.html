@@ -1,1 +1,4 @@
 <h3>Welcome</h3>
+<h5 *ngIf='auth.authenticated()'> You are logged in</h5>
+<h5 *ngIf='!auth.authenticated()'> You are not logged in</h5>
+
