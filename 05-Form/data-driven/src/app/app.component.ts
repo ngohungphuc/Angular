@@ -34,9 +34,9 @@ export class AppComponent implements OnInit {
 
   subcribeToFormChanges() {
     // initialize stream
-    const myFormValueChanges$ = this.myForm.valueChanges;
+    //const myFormValueChanges$ = this.myForm.valueChanges;
     //subscribe to the stream
-    myFormValueChanges$.subscribe(x => this.events.push({ event: 'Status Changed', object: x }));
+    //myFormValueChanges$.subscribe(x => this.events.push({ event: 'Status Changed', object: x }));
   }
 
   save(model: User, isValid: boolean) {
