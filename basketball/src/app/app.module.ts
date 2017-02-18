@@ -3,44 +3,29 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {AppRoutingModule} from './app.routing';
 
-import { PlayersModule } from './players/players.module';
 import { AppComponent } from './app.component';
-import { TeamListComponent } from './teams/team-list/team-list.component';
-import { PlayerListComponent } from './players/player-list/player-list.component';
+import { PlayersModule } from './players/players.module';
+import { TeamsModule } from './teams/team.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		TeamListComponent,
+		NotFoundComponent
+		//TeamListComponent,
 		//remove player list component and add player module instead
 		//PlayerListComponent,
-		NotFoundComponent
+
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		HttpModule,
 		PlayersModule,
-		RouterModule.forRoot([
-			{
-				path: 'teams',
-				component: TeamListComponent
-			},
-			{
-				path: 'players',
-				component: PlayerListComponent
-			},
-			{
-				path: '',
-				component: PlayerListComponent
-			},
-			{
-				path: '**',
-				component: NotFoundComponent
-			}
-		])
+		TeamsModule,
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
