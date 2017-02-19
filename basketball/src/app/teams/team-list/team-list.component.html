@@ -1,3 +1,18 @@
-<p>
-  team-list works!
-</p>
+<h3>Team List</h3>
+
+<table>
+	<tr>
+		<th>Team name</th>
+		<th>Wins</th>
+		<th>Losts</th>
+		<th>Winning %</th>
+		<th>Game behind</th>
+	</tr>
+	<tr *ngFor="let team of listOfTeams">
+		<td>{{team.teamName}}</td>
+		<td>{{team.wins}}</td>
+		<td>{{team.losts}}</td>
+		<td>{{team.winningRate}}</td>
+		<td>{{team.gameBehind}}</td>
+	</tr>
+</table>

@@ -6,11 +6,7 @@ const routes: Routes = [
 	{
 		path: 'teams',
 		component: TeamListComponent
-	},
-	/*	{
-			path: '',
-			component: PlayerListComponent
-		}*/
+	}
 ];
 
 @NgModule({

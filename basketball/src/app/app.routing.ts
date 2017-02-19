@@ -1,4 +1,4 @@
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {PlayerListComponent} from './players/player-list/player-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';

@@ -1,15 +1,15 @@
 export class Team {
-	firstName: string;
-	lastName: string;
-	position: string;
-	height: string;
-	weight: string;
+	teamName: string;
+	wins: string;
+	losts: string;
+	winningRate: string;
+	gameBehind: string;
 
-	constructor(firstName: string, lastName: string, position: string, height: string, weight: string) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.position = position;
-		this.height = height;
-		this.weight = weight;
+	constructor(teamName: string, wins: string, losts: string, winningRate: string, gameBehind: string) {
+		this.teamName = teamName;
+		this.wins = wins;
+		this.losts = losts;
+		this.winningRate = winningRate;
+		this.gameBehind = gameBehind;
 	}
 }
