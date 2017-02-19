@@ -24,7 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 		FormsModule,
 		HttpModule,
 		PlayersModule,
-		TeamsModule,
+		//TeamsModule,
 		AppRoutingModule
 	],
 	providers: [],
