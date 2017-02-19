@@ -3,9 +3,9 @@ import {BrowserModule} from '@angular/platform-browser/';
 import {FormsModule} from '@angular/forms';
 import {TeamListComponent} from './team-list/team-list.component';
 import {TeamsRoutingModule} from './team.routing';
-
+import {CommonModule} from '../common/common.module';
 @NgModule({
-	imports: [BrowserModule, FormsModule, TeamsRoutingModule],
+	imports: [BrowserModule, FormsModule, TeamsRoutingModule, CommonModule],
 	declarations: [TeamListComponent]
 })
 

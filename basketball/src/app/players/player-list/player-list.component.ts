@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Player} from '../shared/player';
-import {MOCK_PLAYERS} from '../shared/mock-players';
+import {Player} from '../../common/players/player';
+import {RestApiService} from '../../common/restapi.service';
 @Component({
 	selector: 'app-player-list',
 	templateUrl: './player-list.component.html',
@@ -8,10 +8,10 @@ import {MOCK_PLAYERS} from '../shared/mock-players';
 })
 export class PlayerListComponent implements OnInit {
 	listOfPlayers: Player[];
-	constructor() { }
+	constructor(private apiService: RestApiService) { }
 
 	ngOnInit() {
-		this.listOfPlayers = MOCK_PLAYERS;
+		this.listOfPlayers = this.apiService.getListOfPlayers();
 	}
 
 }

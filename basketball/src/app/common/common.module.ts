@@ -1,6 +1,7 @@
-@import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import {RestApiService} from './restapi.service';
 
 @NgModule({
-	providers: []
+	providers: [RestApiService]
 })
 export class CommonModule { }
