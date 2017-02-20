@@ -1,22 +1,21 @@
 <h3>Player List</h3>
-
 <table class="table table-striped table-hover">
-	<thead>
-		<th>First name</th>
-		<th>Last name</th>
-		<th>Postion</th>
-		<th>Height</th>
-		<th>Weight</th>
-	</thead>
-	<tr *ngFor="let player of listOfPlayers">
-		<td>{{player.firstName}}</td>
-		<td>{{player.lastName}}</td>
-		<td>{{player.position}}</td>
-		<td>{{player.height}}</td>
-		<td>{{player.weight}}</td>
-	</tr>
+  <thead>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Postion</th>
+    <th>Height</th>
+    <th>Weight</th>
+  </thead>
+  <tr *ngFor="let player of listOfPlayers" (click)="setSelectedPlayer(player)">
+    <td>{{player.firstName}}</td>
+    <td>{{player.lastName}}</td>
+    <td>{{player.position}}</td>
+    <td>{{player.height}}</td>
+    <td>{{player.weight}}</td>
+  </tr>
 </table>
-
+<app-players-profile [selectedPlayer]="selectedPlayer"></app-players-profile>
 <p>
-	<a routerLink="/teams">Teams</a>
+  <a routerLink="/teams">Teams</a>
 </p>
