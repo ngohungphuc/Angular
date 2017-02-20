@@ -9,25 +9,28 @@ import { AppComponent } from './app.component';
 import { PlayersModule } from './players/players.module';
 import { TeamsModule } from './teams/team.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		NotFoundComponent
-		//TeamListComponent,
-		//remove player list component and add player module instead
-		//PlayerListComponent,
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    MainNavigationComponent
+    //TeamListComponent,
+    //remove player list component and add player module instead
+    //PlayerListComponent,
 
-	],
-	imports: [
-		BrowserModule,
-		FormsModule,
-		HttpModule,
-		PlayersModule,
-		//TeamsModule,
-		AppRoutingModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    PlayersModule,
+    //TeamsModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
