@@ -6,6 +6,7 @@
     <th>Losts</th>
     <th>Winning %</th>
     <th>Game behind</th>
+    <th>Edit</th>
   </tr>
   <tr *ngFor="let team of listOfTeams">
     <td>{{team.teamName}}</td>
@@ -13,5 +14,11 @@
     <td>{{team.losts}}</td>
     <td>{{team.winningRate}}</td>
     <td>{{team.gameBehind}}</td>
+    <td>
+      <a (click)="selectTeam(team)">
+        <i class="fa fa-edit"></i>
+      </a>
+    </td>
   </tr>
 </table>
+<app-team-edit [selectedTeam]="selectedTeam"></app-team-edit>

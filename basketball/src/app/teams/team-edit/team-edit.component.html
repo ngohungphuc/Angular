@@ -1,0 +1,16 @@
+<form name="editTeamName" *ngIf="selectedTeam">
+  <h2>Edit Team</h2>
+  <div class="form-group">
+    <label for="teamName">Team Name</label>
+    <input type="text" class="form-control" [(ngModel)]="selectedTeam.teamName" name="teamName" id="teamName"/>
+  </div>
+  <div class="form-group">
+    <label for="wins">Wins</label>
+    <input type="number" class="form-control" [(ngModel)]="selectedTeam.wins" name="wins" id="wins"/>
+  </div>
+  <div class="form-group">
+    <label for="losses">Losses</label>
+    <input type="number" class="form-control" [(ngModel)]="selectedTeam.losts" name="losts" id="losts"/>
+  </div>
+  <button type="button" class="btn btn-primary">Submit</button>
+</form>
