@@ -1,11 +1,16 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {PlayerListComponent} from './player-list/player-list.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
 	{
 		path: 'players',
 		component: PlayerListComponent
+	},
+	{
+			path: 'register/player',
+		component: RegistrationComponent
 	}
 ];
 
