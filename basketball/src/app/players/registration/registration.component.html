@@ -1,103 +1,143 @@
 <h2>Register</h2>
 
-<form>
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="registrationViewModel.firstName" placeholder="Enter first name" />
-  </div>
-  <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="registrationViewModel.lastName" placeholder="Enter last name" />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="registrationViewModel.email" placeholder="Enter email" />
-  </div>
-  <div class="form-group">
-    <label for="biography">Biography</label>
-    <textarea class="form-control" id="biography" name="biography" [(ngModel)]="registrationViewModel.biography" rows="5" placeholder="Enter biography"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="dob">DOB</label>
-    <input type="date" class="form-control" id="dob" name="dob" [(ngModel)]="registrationViewModel.dob" placeholder="Enter DOB" />
-  </div>
-  <div class="form-group">
-    <label for="teamId">Team</label>
-    <select id="teamId" name="teamId" class="form-control" [(ngModel)]="registrationViewModel.teamId">
-      <option>Please Select...</option>
+<form [formGroup]="registrationForm" autocomplete="off" novalidate>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter first name" required />
+
+        <div *ngIf="formErrors.firstName" class="alert alert-danger">
+            {{ formErrors.firstName }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter last name" required />
+
+        <div *ngIf="formErrors.lastName" class="alert alert-danger">
+            {{ formErrors.lastName }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email" required />
+
+        <div *ngIf="formErrors.email" class="alert alert-danger">
+            {{ formErrors.email }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="biography">Biography</label>
+        <textarea class="form-control" id="biography" formControlName="biography" rows="5" placeholder="Enter biography"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="dob">DOB</label>
+        <input type="date" class="form-control" id="dob" formControlName="dob" placeholder="Enter DOB" required />
+
+        <div *ngIf="formErrors.dob" class="alert alert-danger">
+            {{ formErrors.dob }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="teamId">Team</label>
+        <select class="form-control" id="teamId" formControlName="teamId" required>
+      <option value="">Please Select...</option>
       <option *ngFor="let team of teamLookupList" [value]="team.Id">{{team.Name}}</option>
     </select>
-  </div>
-  <div class="form-group">
-    <label for="heightInFeet">Height</label>
-    <div class="row">
-      <div class="col-xs-4 col-sm-2">
-        <input type="number" class="form-control" id="heightInFeet"  name="heightInFeet" [(ngModel)]="registrationViewModel.heightInFeet" placeholder="Enter in feet" />
-      </div>
-      <div class="col-xs-1 height-label">feet</div>
-      <div class="col-xs-4 col-sm-2">
-        <input type="number" class="form-control" id="heightInInches" name="heightInInches" [(ngModel)]="registrationViewModel.heightInInches"  placeholder="Enter in inches" />
-      </div>
-      <div class="col-xs-1 height-label">inches</div>
+
+        <div *ngIf="formErrors.teamId" class="alert alert-danger">
+            {{ formErrors.teamId }}
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="weight">Weight</label>
-    <div class="row">
-      <div class="col-xs-4 col-sm-2">
-        <input type="number" class="form-control" id="weight" name="weight" [(ngModel)]="registrationViewModel.weight" placeholder="Enter in pounds" />
-      </div>
-      <div class="col-xs-1 weight-label">lbs</div>
+    <div class="form-group">
+        <label for="heightInFeet">Height</label>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 form-group">
+                <input type="number" class="form-control" id="heightInFeet" formControlName="heightInFeet" placeholder="Enter in feet" required />
+
+                <div *ngIf="formErrors.heightInFeet" class="alert alert-danger">
+                    {{ formErrors.heightInFeet }}
+                </div>
+            </div>
+            <div class="col-xs-1 height-label">feet</div>
+            <div class="col-xs-4 col-sm-2 form-group">
+                <input type="number" class="form-control" id="heightInInches" formControlName="heightInInches" placeholder="Enter in inches" required />
+
+                <div *ngIf="formErrors.heightInInches" class="alert alert-danger">
+                    {{ formErrors.heightInInches }}
+                </div>
+            </div>
+            <div class="col-xs-1 height-label">inches</div>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="pointGuard">Position</label>
-    <div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="position" id="pointGuard" [(ngModel)]="registrationViewModel.position" value="PointGuard" />
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2">
+                <input type="number" class="form-control" id="weight" formControlName="weight" placeholder="Enter in pounds" required />
+
+                <div *ngIf="formErrors.weight" class="alert alert-danger">
+                    {{ formErrors.weight }}
+                </div>
+            </div>
+            <div class="col-xs-1 weight-label">lbs</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pointGuard">Position</label>
+        <div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+          <input type="radio" class="form-check-input" formControlName="position" id="pointGuard" required value="PointGuard" />
           Point Guard
         </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="position" id="shootingGuard" [(ngModel)]="registrationViewModel.position" value="ShootingGuard" />
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+          <input type="radio" class="form-check-input" formControlName="position" id="shootingGuard" value="ShootingGuard" />
           Shooting Guard
         </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="position" id="smallForward" [(ngModel)]="registrationViewModel.position" value="SmallForward" />
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+          <input type="radio" class="form-check-input" formControlName="position" id="smallForward" value="SmallForward" />
           Small Forward
         </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="position" id="powerForward" [(ngModel)]="registrationViewModel.position" value="PowerForward" />
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+          <input type="radio" class="form-check-input" formControlName="position" id="powerForward" value="PowerForward" />
           Power Forward
         </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="position" id="center" [(ngModel)]="registrationViewModel.position" value="Center" />
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+          <input type="radio" class="form-check-input" formControlName="position" id="center" value="Center" />
           Center
         </label>
-      </div>
+            </div>
+        </div>
+        <div *ngIf="formErrors.position" class="alert alert-danger">
+            {{ formErrors.position }}
+        </div>
     </div>
     <div class="form-group">
-      <label for="brokenFoot">Past Injuries</label>
-      <div>
-        <label class="form-check-inline" *ngFor="let injury of injuryLookupList; let i = index;">
-          <input type="checkbox" class="form-check-input" [id]="injuryFieldList[i]" [name]="injuryFieldList[i]" [value]="injury" (change)="addOrRemoveInjury($event.target.value)" />
-          {{injury}}
-        </label>
-      </div>
+        <label for="brokenFoot">Past Injuries</label>
+        <div>
+            <label class="form-check-inline" *ngFor="let injury of injuryLookupList; let i = index;">
+        <input type="checkbox" class="form-check-input" [id]="injuryFieldList[i]" [name]="injuryFieldList[i]" [value]="injury" (change)="addOrRemoveInjury($event.target.value)" />
+        {{injury}}
+      </label>
+        </div>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="registrationViewModel.password" placeholder="Enter password" />
-    </div>
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter password" required />
 
-    <button type="button" class="btn btn-default btn-primary">Submit</button>
-  </div>
+        <div *ngIf="formErrors.password" class="alert alert-danger">
+            {{ formErrors.password }}
+        </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-default btn-primary" [disabled]="registrationForm.invalid" (click)="submit()">Submit</button>
+    </div>
 </form>
