@@ -1,6 +1,6 @@
 import { Position } from './position';
 
-export class RegistrationViewModel{
+export class RegistrationViewModel {
     firstName: string;
     lastName: string;
     email: string;
@@ -14,7 +14,6 @@ export class RegistrationViewModel{
     position: Position;
     password: string;
 
-    
     constructor() {
         this.injuries = [];
     }
