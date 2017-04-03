@@ -1,0 +1,7 @@
+<h1>
+    {{title}}
+</h1>
+<input type="checkbox" [(ngModel)]="hideHelloMessage">Toggle hello hello-message
+<template [ngIf]="!hideHelloMessage">
+  <app-hello-message></app-hello-message>
+</template>
