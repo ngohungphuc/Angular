@@ -23,8 +23,14 @@ export class EventThumbnailComponent {
     @Input() event: any
     //the output name must be equal in parent component
     @Output() eventClick = new EventEmitter()
+    someProperty: any = "some value"
 
     handleClickMe() {
-        this.eventClick.emit('foo')
+        this.eventClick.emit(this.event.name)
+    }
+
+    //using #thumbnail template var to call this method
+    logFoo() {
+        console.log('foo')
     }
 }
