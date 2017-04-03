@@ -15,6 +15,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { CreateEventComponent } from "./events/create-event.component";
 import { EventRouteActivator } from './events/event-route-activator.service';
 import { Error404Component } from "./errors/404.component";
+import { EventListResolver } from "./events/event-list-resolver.service";
 @NgModule({
     imports: [BrowserModule,RouterModule.forRoot(appRoutes)],
     declarations: [EventsAppComponent, 
@@ -28,6 +29,7 @@ import { Error404Component } from "./errors/404.component";
     providers:[EventService,
         ToastrService,
         EventRouteActivator,
+        EventListResolver,
         {provide:'canDeactivateCreateEvent',useValue:checkDirtyState}
     ],
     bootstrap: [EventsAppComponent]
