@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 /**
  * Created by phuc.ngo on 3/04/2017. */
 import {NgModule}from '@angular/core'
@@ -30,6 +31,7 @@ import {
     providers:[EventService, 
         ToastrService, 
         EventRouteActivator, 
+        AuthService,
         EventListResolver,  {provide:'canDeactivateCreateEvent', useValue:checkDirtyState}
     ], 
     bootstrap:[EventsAppComponent]

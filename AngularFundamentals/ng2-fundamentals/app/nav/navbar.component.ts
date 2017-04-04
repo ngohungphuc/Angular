@@ -1,3 +1,4 @@
+import { AuthService } from './../user/auth.service';
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
@@ -12,5 +13,7 @@ import {
 })
 
 export class NavBarComponent {
-
+    constructor(private auth:AuthService){
+        
+    }
 }
