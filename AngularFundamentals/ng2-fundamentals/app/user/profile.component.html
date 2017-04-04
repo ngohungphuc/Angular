@@ -2,7 +2,7 @@
     <h1>Edit Your Profile </h1>
     <hr>
     <div class="col-md-4">
-        <form [formGroup]="profileForm" autocomplete="off" novalidate ngSubmit="saveProfile(profileForm.value)">
+        <form [formGroup]="profileForm" autocomplete="off" novalidate (ngSubmit)="saveProfile(profileForm.value)">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
