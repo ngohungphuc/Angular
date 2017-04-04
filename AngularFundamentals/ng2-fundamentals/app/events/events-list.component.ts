@@ -17,13 +17,12 @@ import { ActivatedRoute } from '@angular/router'
      <button class="btn btn-primary" (click)="thumbnail.logFoo()">Log Foo</button>
      </div>`*/
     template: `
-        <div>
+          <div>
             <h1>Upcoming Angular 2 Events</h1>
-            <hr>
+            <hr/>
             <div class="row">
                 <div *ngFor="let event of events" class="col-md-5">
                     <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
-                     <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
                 </div>
             </div>
         </div>`

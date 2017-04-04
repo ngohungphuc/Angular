@@ -32,7 +32,7 @@ import { IEvent } from './shared/event.model';
         </div>`,
     styles: [
             `.thumbnail {
-            min-height: 210px;
+            min-height: 240px;
         }`
     ]
 })
