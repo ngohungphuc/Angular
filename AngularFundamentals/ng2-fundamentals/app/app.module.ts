@@ -1,4 +1,3 @@
-import { AuthService } from './user/auth.service';
 /**
  * Created by phuc.ngo on 3/04/2017. */
 import {NgModule}from '@angular/core'
@@ -9,6 +8,8 @@ import {ToastrService }from './common/toastr.service';
 import {appRoutes }from './route'; 
 import {RouterModule }from '@angular/router'; 
 import {Error404Component }from "./errors/404.component"; 
+import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     EventsListComponent, 
     EventThumbnailComponent, 
@@ -19,7 +20,12 @@ import {
     EventListResolver
 }from './events/index'
 @NgModule( {
-    imports:[BrowserModule, RouterModule.forRoot(appRoutes)], 
+    imports:[
+        BrowserModule, 
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot(appRoutes)
+    ], 
     declarations:[EventsAppComponent, 
         EventsListComponent, 
         EventThumbnailComponent, 
