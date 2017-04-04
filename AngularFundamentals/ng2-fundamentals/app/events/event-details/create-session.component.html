@@ -40,6 +40,7 @@
             <label for="abstract">Abstract:</label>
             <em *ngIf="abstract.invalid && abstract.dirty && abstract.errors.required">Required</em>
             <em *ngIf="abstract.invalid && abstract.dirty && abstract.errors.maxLength">Max 400 char</em>
+            <em *ngIf="abstract.invalid && abstract.dirty && abstract.errors.restrictedWords">Do not include foo word</em>
             <textarea formControlName="abstract" id="abstract" rows=3 class="form-control"
                       placeholder="abstract..."></textarea>
         </div>
