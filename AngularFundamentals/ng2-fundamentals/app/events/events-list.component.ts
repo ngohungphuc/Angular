@@ -1,3 +1,4 @@
+import { IEvent } from './shared/event.model';
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
@@ -28,7 +29,7 @@ import { ActivatedRoute } from '@angular/router'
         </div>`
 })
 export class EventsListComponent implements OnInit{
-    events:any;
+    events:IEvent[]
     constructor(private eventService:EventService,private toastr: ToastrService,private route:ActivatedRoute){
 
     }

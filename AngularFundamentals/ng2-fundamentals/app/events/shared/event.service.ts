@@ -1,27 +1,29 @@
+import { IEvent } from './event.model';
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
 
-import {Injectable} from "@angular/core";
-import {Subject} from 'rxjs/RX'
+import { Injectable } from "@angular/core";
+import { Subject,Observable } from 'rxjs/RX'
+
 @Injectable()
 export class EventService {
-    getEvents() {
-        let subject = new Subject()
+    getEvents():Observable<IEvent[]> {
+        let subject = new Subject<IEvent[]>()
         setTimeout(()=>{subject.next(Events);subject.complete();},100)
         return subject
     }
 
-    getEvent(id:number){
+    getEvent(id:number):IEvent{
         return Events.find(event=>event.id === id)
     }
 }
 
-const Events = [
+const Events:IEvent[] = [
     {
         id: 1,
         name: 'Angular Connect',
-        date: '9/26/2036',
+        date: new Date('9/26/2036'),
         time: '10:00 am',
         price: 599.99,
         imageUrl: '/app/assets/images/angularconnect-shield.png',
@@ -99,7 +101,7 @@ const Events = [
     {
         id: 2,
         name: 'ng-nl',
-        date: '4/15/2037',
+        date: new Date('4/15/2037'),
         time: '9:00 am',
         price: 950.00,
         imageUrl: '/app/assets/images/ng-nl.png',
@@ -159,7 +161,7 @@ const Events = [
     {
         id: 3,
         name: 'ng-conf 2037',
-        date: '5/4/2037',
+        date: new Date('5/4/2037'),
         time: '9:00 am',
         price: 759.00,
         imageUrl: '/app/assets/images/ng-conf.png',
@@ -241,7 +243,7 @@ const Events = [
     {
         id: 4,
         name: 'UN Angular Summit',
-        date: '6/10/2037',
+        date: new Date('6/10/2037'),
         time: '8:00 am',
         price: 800.00,
         imageUrl: '/app/assets/images/basic-shield.png',
@@ -290,7 +292,7 @@ const Events = [
     {
         id: 5,
         name: 'ng-vegas',
-        date: '2/10/2037',
+        date: new Date('2/10/2037'),
         time: '9:00 am',
         price: 400.00,
         imageUrl: '/app/assets/images/ng-vegas.png',

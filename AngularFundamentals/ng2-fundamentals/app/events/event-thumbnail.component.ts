@@ -2,7 +2,7 @@
  * Created by phuc.ngo on 3/04/2017.
  */
 import {Component, Input, Output, EventEmitter} from '@angular/core'
-
+import { IEvent } from './shared/event.model';
 @Component({
     selector: 'event-thumbnail',
     /*    template: `
@@ -37,7 +37,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
     ]
 })
 export class EventThumbnailComponent {
-    @Input() event: any
+    @Input() event: IEvent
     //the output name must be equal in parent component
     @Output() eventClick = new EventEmitter()
     someProperty: any = "some value"
