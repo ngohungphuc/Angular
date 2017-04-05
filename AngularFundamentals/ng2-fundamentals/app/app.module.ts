@@ -10,6 +10,7 @@ import {RouterModule}from '@angular/router';
 import {Error404Component}from "./errors/404.component";
 import {AuthService} from './user/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import {
     EventsListComponent,
     EventThumbnailComponent,
@@ -20,7 +21,7 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent
-}from './events/index'
+} from './events/index'
 @NgModule({
     imports: [
         BrowserModule,
@@ -36,7 +37,8 @@ import {
         Error404Component,
         NavBarComponent,
         CreateSessionComponent,
-        SessionListComponent
+        SessionListComponent,
+        CollapsibleWellComponent
     ],
     providers: [EventService,
         ToastrService,
