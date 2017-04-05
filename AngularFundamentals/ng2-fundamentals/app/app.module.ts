@@ -18,7 +18,8 @@ import {
     CreateEventComponent,
     EventRouteActivator,
     EventListResolver,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
 }from './events/index'
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import {
         CreateEventComponent,
         Error404Component,
         NavBarComponent,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionListComponent
     ],
     providers: [EventService,
         ToastrService,
