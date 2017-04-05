@@ -20,7 +20,8 @@ import {
     EventRouteActivator,
     EventListResolver,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    DurationPipe
 } from './events/index'
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import {
         NavBarComponent,
         CreateSessionComponent,
         SessionListComponent,
-        CollapsibleWellComponent
+        CollapsibleWellComponent,
+        DurationPipe
     ],
     providers: [EventService,
         ToastrService,

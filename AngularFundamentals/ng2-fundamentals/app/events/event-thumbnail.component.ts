@@ -1,7 +1,7 @@
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
-import {Component, Input, Output, EventEmitter} from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { IEvent } from './shared/event.model';
 @Component({
     selector: 'event-thumbnail',
@@ -20,10 +20,10 @@ import { IEvent } from './shared/event.model';
      </div>`,*/
     template: `
         <div [routerLink]="['/events',event.id]" class="well hoverwell thumbnail">
-            <h2>{{event.name}}</h2>
+            <h2>{{event.name | uppercase}}</h2>
             <div>Date: {{event.date}}</div>
             <div>Time: {{event.time}}</div>
-            <div>Price: \${{event.price}}</div>
+            <div>Price: {{event.price | currency}}</div>
             <div>
                 <span>Location: {{event.location.address}}</span>
                 <span>&nbsp;</span>
@@ -31,7 +31,7 @@ import { IEvent } from './shared/event.model';
             </div>
         </div>`,
     styles: [
-            `.thumbnail {
+        `.thumbnail {
             min-height: 240px;
         }`
     ]
