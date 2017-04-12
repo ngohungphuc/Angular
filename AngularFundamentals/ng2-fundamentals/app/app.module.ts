@@ -22,6 +22,7 @@ import {
     CreateSessionComponent,
     SessionListComponent,
     DurationPipe,
+    VoterService,
     UpvoteComponent
 } from './events/index'
 //global object
@@ -55,6 +56,7 @@ declare let jQuery: Object;
         { provide: JQ_TOKEN, useValue: jQuery },
         EventRouteActivator,
         AuthService,
+        VoterService,
         EventListResolver, { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
     ],
     bootstrap: [EventsAppComponent]
