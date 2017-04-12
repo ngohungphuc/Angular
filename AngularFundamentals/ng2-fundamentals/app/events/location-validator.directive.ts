@@ -1,7 +1,9 @@
 import {Directive} from '@angular/core'
-import {Validator, FormGroup} from '@angular/forms'
+import {Validator, FormGroup, NG_VALIDATORS} from '@angular/forms'
 @Directive({
-    selector: '[validateLocation]'
+    selector: '[validateLocation]',
+    //add LocationValidator to list of NG_VALIDATORS
+    providers: [{ provide: NG_VALIDATORS, useExisting: LocationValidator, multi: true }]
 })
 /**
  * Custom validator for create-event component
