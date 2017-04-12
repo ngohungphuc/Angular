@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\ng2-fundamentals",
-    "\\ng2-fundamentals\\app"
+    "\\ng2-fundamentals\\app",
+    "\\ng2-fundamentals\\app\\common"
   ],
-  "SelectedNode": "\\ng2-fundamentals\\app\\app.module.js.map",
+  "SelectedNode": "\\ng2-fundamentals\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

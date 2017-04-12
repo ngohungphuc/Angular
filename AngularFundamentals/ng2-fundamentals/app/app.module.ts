@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from "./nav/navbar.component";
-import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent } from './common/index';
+import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 import { appRoutes } from './route';
 import { RouterModule } from '@angular/router';
 import { Error404Component } from "./errors/404.component";
@@ -45,6 +45,7 @@ declare let jQuery: Object;
         SessionListComponent,
         CollapsibleWellComponent,
         SimpleModalComponent,
+        ModalTriggerDirective,
         DurationPipe
     ],
     providers: [EventService,
