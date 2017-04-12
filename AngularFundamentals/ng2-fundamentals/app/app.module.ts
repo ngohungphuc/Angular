@@ -21,7 +21,8 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
-    DurationPipe
+    DurationPipe,
+    UpvoteComponent
 } from './events/index'
 //global object
 declare let toastr: Toastr;
@@ -46,7 +47,8 @@ declare let jQuery: Object;
         CollapsibleWellComponent,
         SimpleModalComponent,
         ModalTriggerDirective,
-        DurationPipe
+        DurationPipe,
+        UpvoteComponent
     ],
     providers: [EventService,
         { provide: TOASTR_TOKEN, useValue: toastr },
