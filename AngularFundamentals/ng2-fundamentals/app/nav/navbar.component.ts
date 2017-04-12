@@ -1,4 +1,6 @@
 import { AuthService } from './../user/auth.service';
+import { ISession, EventService } from '../events/shared/index';
+
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
@@ -13,7 +15,17 @@ import {
 })
 
 export class NavBarComponent {
-    constructor(private auth:AuthService){
-        
+    searchTerm: string = ""
+    foundSessions: ISession[]
+    constructor(private auth: AuthService, private eventService: EventService) {
+    }
+
+    searchSession(searchTerm) {
+        this.eventService.searchSessions(searchTerm).subscribe(
+            sessions => {
+                this.foundSessions = sessions
+                console.log(this.foundSessions)
+            }
+        );
     }
 }
