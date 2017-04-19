@@ -31,30 +31,15 @@ export class EventService {
         console.log(event)
         let headers = new Headers({ 'Content-Type': 'application/json' })
         let options = new RequestOptions({ headers: headers })
-        return this.http.post("/api/events", JSON.stringify(event), options).map((response:Response)=>{
+        return this.http.post("/api/events", JSON.stringify(event), options).map((response: Response) => {
             return response.json()
         }).catch(this.handleError)
     }
 
     searchSessions(searchTerm: string) {
-        var term = searchTerm.toLowerCase()
-        var results: ISession[] = []
-
-        Events.forEach(event => {
-            var matchingSessions = event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1)
-            matchingSessions = matchingSessions.map((session: any) => {
-                session.eventId = event.id
-                return session
-            })
-            results = results.concat(matchingSessions)
-        })
-
-        var emitter = new EventEmitter(true)
-
-        setTimeout(() => {
-            emitter.emit(results)
-        }, 100)
-        return emitter
+        return this.http.get("/api/sessions/search?search=" + searchTerm).map((response: Response) => {
+            return response.json()
+        }).catch(this.handleError)
     }
 
     handleError(error: Response) {
