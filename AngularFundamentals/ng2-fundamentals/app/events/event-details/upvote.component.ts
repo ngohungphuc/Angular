@@ -23,6 +23,7 @@ export class UpvoteComponent {
     }
 
     @Output() vote = new EventEmitter()
+    iconColor: string;
 
     onClick() {
         this.vote.emit({})
