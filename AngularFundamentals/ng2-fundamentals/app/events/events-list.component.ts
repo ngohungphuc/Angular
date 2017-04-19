@@ -33,6 +33,11 @@ export class EventsListComponent implements OnInit {
 
     }
 
+    /**
+    * {path: 'events', component: EventsListComponent, resolve: {events: EventListResolver}},
+    * The events in resolve will call eventlistresolver then pass data back to events in ngOnInit method
+    * @memberOf EventsListComponent
+    */
     ngOnInit() {
         //data['events'] == resolve:{events:EventListResolver}
         this.events = this.route.snapshot.data['events']
