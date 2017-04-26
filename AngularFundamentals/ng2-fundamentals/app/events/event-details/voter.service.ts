@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Headers, Http, RequestOptions, Response } from '@angular/http'
-import { Observable } from 'rxjs/Rx'
+// need to import only observable to avoid redundant code
+import { Observable } from 'rxjs/Observable'
 import { ISession } from '../shared/event.model'
 @Injectable()
 export class VoterService {
