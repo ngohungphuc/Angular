@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { BrowserModule } from '@angular/platform-browser'
-import { RouterModule } from '@angular/router'
+import { RouterModule, PreloadAllModules } from '@angular/router'
 import { CollapsibleWellComponent, JQ_TOKEN, ModalTriggerDirective, SimpleModalComponent, Toastr, TOASTR_TOKEN } from './common/index'
 import { Error404Component } from './errors/404.component'
 import { EventsAppComponent } from './events-app.component'
@@ -36,7 +36,7 @@ declare let jQuery: Object
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes,{preloadingStrategy:PreloadAllModules}),
     ],
     declarations: [EventsAppComponent,
         EventsListComponent,
