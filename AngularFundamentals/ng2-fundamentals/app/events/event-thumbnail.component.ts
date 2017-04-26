@@ -1,8 +1,8 @@
 /**
  * Created by phuc.ngo on 3/04/2017.
  */
-import { Component, Input, Output, EventEmitter } from '@angular/core'
-import { IEvent } from './shared/event.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { IEvent } from './shared/event.model'
 @Component({
     /*    template: `
      <div class="well hoverwell thumbnail">
@@ -42,26 +42,28 @@ import { IEvent } from './shared/event.model';
         .thumbnail { min-height: 210px; }
         .well div { color: #bbb; }
         .thumbnail { min-height: 210px; }
-    `]
+    `],
 })
 export class EventThumbnailComponent {
     @Input() event: IEvent
-    //the output name must be equal in parent component
+
+    // the output name must be equal in parent component
+
     @Output() eventClick = new EventEmitter()
-    someProperty: any = "some value"
+    someProperty: any = 'some value'
 
     handleClickMe() {
         this.eventClick.emit(this.event.name)
     }
 
-    //using #thumbnail template var to call this method
+    // using #thumbnail template var to call this method
     logFoo() {
         console.log('foo')
     }
 
-    getStartTimeStyle():any {
+    getStartTimeStyle(): any {
     if (this.event && this.event.time === '8:00 am')
-      return {color: '#003300', 'font-weight': 'bold'}
+      return {'color': '#003300', 'font-weight': 'bold'}
     return {}
   }
 }

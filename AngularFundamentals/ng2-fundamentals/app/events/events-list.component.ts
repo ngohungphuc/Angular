@@ -2,9 +2,9 @@
  * Created by phuc.ngo on 3/04/2017.
  */
 import {Component, OnInit} from '@angular/core'
-import {EventService} from './shared/event.service'
 import {ActivatedRoute} from '@angular/router'
-import {IEvent} from './shared/event.model';
+import {IEvent} from './shared/event.model'
+import {EventService} from './shared/event.service'
 @Component({
     selector: 'event-list',
     /*template: `
@@ -24,7 +24,7 @@ import {IEvent} from './shared/event.model';
                     <event-thumbnail [event]="event"></event-thumbnail>
                 </div>
             </div>
-        </div>`
+        </div>`,
 })
 export class EventsListComponent implements OnInit {
     events: IEvent[]
@@ -39,7 +39,7 @@ export class EventsListComponent implements OnInit {
     * @memberOf EventsListComponent
     */
     ngOnInit() {
-        //data['events'] == resolve:{events:EventListResolver}
+        // data['events'] == resolve:{events:EventListResolver}
         this.events = this.route.snapshot.data['events']
     }
 

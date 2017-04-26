@@ -1,7 +1,7 @@
-import { IEvent, ISession } from './../shared/index';
-import {EventService} from './../shared/event.service'
 import {Component} from '@angular/core'
 import {ActivatedRoute, Params} from '@angular/router'
+import {EventService} from './../shared/event.service'
+import { IEvent, ISession } from './../shared/index'
 @Component({
     templateUrl: 'app/events/event-details/event-details.component.html',
     styles: [`
@@ -12,14 +12,14 @@ import {ActivatedRoute, Params} from '@angular/router'
 
         .event-image {
             height: 100px;
-        }`
-    ]
+        }`,
+    ],
 })
 export class EventDetailsComponent {
     event: IEvent
     addMode: boolean
-    filterBy: string = 'all'
-    sortBy: string = 'votes'
+    filterBy = 'all'
+    sortBy = 'votes'
 
     constructor(private eventService: EventService, private route: ActivatedRoute) {
 
@@ -38,7 +38,7 @@ export class EventDetailsComponent {
     }
 
     saveNewSession(session: ISession) {
-        const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id))
+        const nextId = Math.max.apply(null, this.event.sessions.map((s) => s.id))
         console.log(nextId)
         session.id = nextId + 1
         this.event.sessions.push(session)

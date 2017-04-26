@@ -1,12 +1,12 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter } from '@angular/core'
 /**
  * Created by ngohungphuc on 04/04/2017.
  */
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core'
 import {FormControl, FormGroup, Validators} from '@angular/forms'
-import {ISession, restrictedWords} from "../shared/index";
+import {ISession, restrictedWords} from '../shared/index'
 @Component({
-    selector:'create-session',
+    selector: 'create-session',
     templateUrl: 'app/events/event-details/create-session.component.html',
     styles: [`
         em {
@@ -34,7 +34,7 @@ import {ISession, restrictedWords} from "../shared/index";
         .error :ms-input-placeholder {
             color: #999;
         }
-    `]
+    `],
 })
 export class CreateSessionComponent implements OnInit {
     @Output() saveNewSession = new EventEmitter()
@@ -58,27 +58,26 @@ export class CreateSessionComponent implements OnInit {
             presenter: this.presenter,
             duration: this.duration,
             level: this.level,
-            abstract: this.abstract
+            abstract: this.abstract,
         })
     }
 
-
     saveSession(formValues) {
-        let session: ISession = {
+        const session: ISession = {
             id: undefined,
             name: formValues.name,
             duration: +formValues.duration,
             level: formValues.level,
             presenter: formValues.presenter,
             abstract: formValues.abstract,
-            voters: []
+            voters: [],
         }
 
         console.log(session)
         this.saveNewSession.emit(session)
     }
 
-    cancel(){
+    cancel() {
         this.cancelAddSession.emit()
     }
 }

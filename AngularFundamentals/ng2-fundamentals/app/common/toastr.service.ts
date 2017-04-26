@@ -1,8 +1,8 @@
 /**
  * Created by phuc.ngo on 3/04/2017. */
-import { OpaqueToken } from "@angular/core";
+import { OpaqueToken } from '@angular/core'
 
-export let TOASTR_TOKEN = new OpaqueToken('toastr');
+export let TOASTR_TOKEN = new OpaqueToken('toastr')
 
 export interface Toastr {
     success(msg: string, title?: string): void

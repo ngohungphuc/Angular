@@ -1,12 +1,12 @@
-import {AuthService} from './auth.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {
     Component,
+    Inject,
     OnInit,
-    Inject
 } from '@angular/core'
-import { Router } from "@angular/router";
-import { Toastr, TOASTR_TOKEN } from "../common/toastr.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+import { Router } from '@angular/router'
+import { Toastr, TOASTR_TOKEN } from '../common/toastr.service'
+import {AuthService} from './auth.service'
 
 @Component({
     templateUrl: 'app/user/profile.component.html',
@@ -36,14 +36,14 @@ import { Toastr, TOASTR_TOKEN } from "../common/toastr.service";
         .error :ms-input-placeholder {
             color: #999;
         }
-    `]
+    `],
 })
 export class ProfileComponent implements OnInit {
     profileForm: FormGroup
     private firstName: FormControl
     private lastName: FormControl
 
-    constructor(private authService: AuthService, private router: Router,@Inject(TOASTR_TOKEN) private toastr: Toastr) {
+    constructor(private authService: AuthService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
 
     }
 
@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
         this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required)
         this.profileForm = new FormGroup({
             firstName: this.firstName,
-            lastName: this.lastName
+            lastName: this.lastName,
         })
     }
 

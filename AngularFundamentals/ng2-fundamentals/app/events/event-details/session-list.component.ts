@@ -1,10 +1,10 @@
-import { OnChanges, Component, Input } from '@angular/core';
-import { ISession } from "../index";
+import { Component, Input, OnChanges } from '@angular/core'
 import { AuthService } from '../../user/auth.service'
+import { ISession } from '../index'
 import { VoterService } from './voter.service'
 @Component({
     selector: 'session-list',
-    templateUrl: 'app/events/event-details/session-list.component.html'
+    templateUrl: 'app/events/event-details/session-list.component.html',
 })
 
 export class SessionListComponent implements OnChanges {
@@ -41,7 +41,7 @@ export class SessionListComponent implements OnChanges {
         if (filter === 'all') {
             this.visibleSessions = this.sessions.slice(0)
         } else {
-            this.visibleSessions = this.sessions.filter(session => {
+            this.visibleSessions = this.sessions.filter((session) => {
                 return session.level.toLocaleLowerCase() === filter
             })
         }

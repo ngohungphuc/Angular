@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, Inject, ViewChild } from '@angular/core'
+import { Component, ElementRef, Inject, Input, ViewChild } from '@angular/core'
 import {JQ_TOKEN} from './jquery.service'
 @Component({
     selector: 'simple-modal',
@@ -19,7 +19,7 @@ import {JQ_TOKEN} from './jquery.service'
         `,
     styles: [`
         .modal-body { height:250px; overflow-y:scroll; }
-    `]
+    `],
 })
 export class SimpleModalComponent {
     @Input() title: string
@@ -36,7 +36,7 @@ export class SimpleModalComponent {
      * @return {[type]} [description]
      */
     closeModal() {
-        if (this.closeOnBodyClick.toLowerCase() === "true") {
+        if (this.closeOnBodyClick.toLowerCase() === 'true') {
             this.$(this.containerEl.nativeElement).modal('hide')
         }
     }

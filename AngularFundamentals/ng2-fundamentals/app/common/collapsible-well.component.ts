@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core'
 
 /**
  * Select tag use to indicate where the content should be put using class or id
- * 
+ *
  * @export
  * @class CollapsibleWellComponent
  */
@@ -13,11 +13,11 @@ import { Component, Input } from '@angular/core';
             <ng-content select="[well-title]"></ng-content>
         </h4>
         <ng-content select="[well-body]" *ngIf="visible"></ng-content>
-    </div>`
+    </div>`,
 })
 export class CollapsibleWellComponent {
     @Input() title: string
-    visible: boolean = true
+    visible = true
 
     toggleContent() {
         this.visible = !this.visible

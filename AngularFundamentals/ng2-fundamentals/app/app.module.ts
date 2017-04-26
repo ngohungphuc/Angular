@@ -1,35 +1,33 @@
-/**
- * Created by phuc.ngo on 3/04/2017. */
 import { NgModule } from '@angular/core'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 import { BrowserModule } from '@angular/platform-browser'
+import { RouterModule } from '@angular/router'
+import { CollapsibleWellComponent, JQ_TOKEN, ModalTriggerDirective, SimpleModalComponent, Toastr, TOASTR_TOKEN } from './common/index'
+import { Error404Component } from './errors/404.component'
 import { EventsAppComponent } from './events-app.component'
-import { NavBarComponent } from "./nav/navbar.component";
-import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
-import { appRoutes } from './route';
-import { RouterModule } from '@angular/router';
-import { Error404Component } from "./errors/404.component";
-import { AuthService } from './user/auth.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { NavBarComponent } from './nav/navbar.component'
+import { appRoutes } from './route'
+import { AuthService } from './user/auth.service'
 
 import {
+    CreateEventComponent,
+    CreateSessionComponent,
+    DurationPipe,
+    EventDetailsComponent,
+    EventListResolver,
+    EventResolver,
+    EventService,
     EventsListComponent,
     EventThumbnailComponent,
-    EventService,
-    EventDetailsComponent,
-    CreateEventComponent,
-    EventListResolver,
-    CreateSessionComponent,
-    SessionListComponent,
-    DurationPipe,
-    VoterService,
-    UpvoteComponent,
     LocationValidator,
-    EventResolver
+    SessionListComponent,
+    UpvoteComponent,
+    VoterService,
 } from './events/index'
-//global object
-declare let toastr: Toastr;
-declare let jQuery: Object;
+// global object
+declare let toastr: Toastr
+declare let jQuery: Object
 
 @NgModule({
     imports: [
@@ -37,7 +35,7 @@ declare let jQuery: Object;
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
     ],
     declarations: [EventsAppComponent,
         EventsListComponent,
@@ -53,7 +51,7 @@ declare let jQuery: Object;
         ModalTriggerDirective,
         DurationPipe,
         UpvoteComponent,
-        LocationValidator
+        LocationValidator,
     ],
     providers: [EventService,
         { provide: TOASTR_TOKEN, useValue: toastr },
@@ -61,15 +59,17 @@ declare let jQuery: Object;
         AuthService,
         VoterService,
         EventResolver,
-        EventListResolver, { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+        EventListResolver, { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     ],
-    bootstrap: [EventsAppComponent]
+    bootstrap: [EventsAppComponent],
 })
 export class AppModule {
 }
 
+// tslint:disable-next-line:typedef
 function checkDirtyState(component: CreateEventComponent) {
-    if (component.isDirty)
+    if (component.isDirty) {
         return window.confirm('Do you really want to cancel')
-    return true;
+    }
+    return true
 }
