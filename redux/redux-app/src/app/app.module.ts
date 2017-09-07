@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgRedux, NgReduxModule } from 'ng2-redux';
-
+import { fromJS, Map} from 'immutable';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, NgReduxModule],
@@ -11,8 +11,8 @@ import { NgRedux, NgReduxModule } from 'ng2-redux';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>) {
+  constructor(ngRedux: NgRedux<Map<string, any>>) {
     // init store
-    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+    ngRedux.configureStore(rootReducer, fromJS(INITIAL_STATE));
   }
 }
