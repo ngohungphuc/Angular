@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs/Observable';
-import { store , filterCourses, IAppState } from '../store';
+import { filterCourses, IAppState } from '../store';
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './course.service';
 import { Course } from './course';
 import { FilterTextComponent, FilterService } from '../blocks/filter-text';
 import { NgRedux, select } from 'ng2-redux';
+import { CourseActions } from './course.action';
 
 @Component({
   selector: 'app-course-list',
@@ -14,12 +15,17 @@ import { NgRedux, select } from 'ng2-redux';
 export class CourseListComponent implements OnInit {
   @select('filteredCourses') filteredCourses$: Observable<Course>;
 
-  constructor(private ngRedux: NgRedux<IAppState>) {
+  constructor(
+    private ngRedux: NgRedux<IAppState>,
+    private courseAction: CourseActions
+  ) {
   }
 
   filterChanged(searchText: string) {
     console.log('user searched: ', searchText);
-    store.dispatch(filterCourses(searchText));
+    // remove direct dispatch
+    // store.dispatch(filterCourses(searchText));
+    this.courseAction.filterCourses(searchText);
   }
 
   ngOnInit() {
