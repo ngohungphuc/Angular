@@ -12,13 +12,14 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryStoryService } from '../api/in-memory-story.service';
 import { AppRoutingModule } from './app-routing.module';
 
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FilterTextComponent, FilterService } from './blocks/filter-text';
 import { ToastComponent, ToastService } from './blocks/toast';
 import { SpinnerComponent, SpinnerService } from './blocks/spinner';
 import { ModalComponent, ModalService } from './blocks/modal';
 import { ExceptionService } from './blocks/exception.service';
-
+import { NgRedux, NgReduxModule } from 'ng2-redux';
+import { store, IAppState } from './store';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,15 @@ import { ExceptionService } from './blocks/exception.service';
     FilterTextComponent,
     ToastComponent,
     SpinnerComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryStoryService, { delay: 500 }),
-    AppRoutingModule
+    AppRoutingModule,
+    NgReduxModule
   ],
   providers: [
     CourseService,
@@ -43,8 +45,12 @@ import { ExceptionService } from './blocks/exception.service';
     ToastService,
     SpinnerService,
     ModalService,
-    ExceptionService,
+    ExceptionService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>) {
+    ngRedux.provideStore(store);
+  }
+}
